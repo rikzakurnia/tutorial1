@@ -9,4 +9,4 @@ def show_wishlist(request):
     'list_barang': data_barang_wishlist,
     'nama': 'Rikza Kurnia'
     }
-    return render(request, "wishlist.html")
+    return render(request, "wishlist.html", context)
