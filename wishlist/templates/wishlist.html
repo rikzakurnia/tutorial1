@@ -1,10 +1,59 @@
 {% extends 'base.html' %}
 
-{% block content %}
-<h5>Nama: </h5>
-<p>{{nama}}</p>
 
-<table>
+{% block content %}
+
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="">{{nama}}</a>
+        <!-- <button><a href="{% url 'wishlist:logout' %}">Logout</a></button> -->
+        <a class="btn btn-outline-light" href="{% url 'wishlist:logout' %}" role="button">Logout</a>
+    </div>
+  </nav>
+
+
+<head>
+    <style>
+        table{
+            width: 100%;
+        }
+        table, th, td {
+            margin-top: 20px;
+            border: 1px solid;
+            text-align: center;
+            color: black;
+        }
+        th, td{
+            padding: 20px;
+        }
+        th{
+            background-color: rgb(0, 0, 0);
+            color: antiquewhite;
+        }
+        a{
+            color: black;
+            text-decoration: none;
+        }
+        .navbar-brand {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 25px;
+        }
+        p{
+            font-size: 15;
+        }
+        body{
+            background-color: rgb(168, 166, 166);
+        }
+
+
+
+    </style>
+    <title>Daftar Barang</title>
+</head>
+
+<table >
     <tr>
     <th>Nama Barang</th>
     <th>Harga Barang</th>
@@ -13,13 +62,13 @@
     {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
     {% for barang in list_barang %}
     <tr>
-        <th>{{barang.nama_barang}}</th>
-        <th>{{barang.harga_barang}}</th>
-        <th>{{barang.deskripsi}}</th>
+        <td>{{barang.nama_barang}}</td>
+        <td>{{barang.harga_barang}}</td>
+        <td>{{barang.deskripsi}}</td>
     </tr>
     {% endfor %}
 </table>
-<h5>Sesi terakhir login: {{ last_login }}</h5>
-<button><a href="{% url 'wishlist:logout' %}">Logout</a></button>
+<p>Sesi terakhir login: {{ last_login }}</p>
+
 
 {% endblock content %}
